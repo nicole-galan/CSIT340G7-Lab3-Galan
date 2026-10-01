@@ -1,3 +1,5 @@
+import './App.css'
+
 const Header = (props) => {
   return (
     <h1>{props.course}</h1>
@@ -38,21 +40,29 @@ const Total = (props) => {
   )
 }
 
+const Footer = (props) => {
+  return (
+    <p>
+      {props.name} - {props.courseCode} - {props.section}
+    </p>
+  )
+}
+
 const App = () => {
-  const course = 'Half Stack application development'
+  const course = 'CSIT321 - Applications Development and Emerging Technologies'
 
   const parts = [
     {
-      name: 'Fundamentals of React',
-      exercises: 10
+      name: 'CSIT321 - Applications Development and Emerging Technologies',
+      exercises: 2.0
     },
     {
-      name: 'Using props to pass data',
-      exercises: 7
+      name: 'CSIT340 - Industry Elective 1',
+      exercises: 2.0
     },
     {
-      name: 'State of a component',
-      exercises: 14
+      name: 'CSIT327 - Information Management 2',
+      exercises: 2.0
     }
   ]
 
@@ -61,6 +71,11 @@ const App = () => {
       <Header course={course} />
       <Content parts={parts} />
       <Total parts={parts} />
+      <Footer
+        name="Nicole Angela P. Galan"
+        courseCode="CSIT340"
+        section="G7"
+      />
     </div>
   )
 }
