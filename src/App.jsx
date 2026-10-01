@@ -15,30 +15,25 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part
-        name={props.parts[0].name}
-        exercises={props.parts[0].exercises}
-      />
-      <Part
-        name={props.parts[1].name}
-        exercises={props.parts[1].exercises}
-      />
-      <Part
-        name={props.parts[2].name}
-        exercises={props.parts[2].exercises}
-      />
+      {props.parts.map(part =>
+        <Part
+          key={part.name}
+          name={part.name}
+          exercises={part.exercises}
+        />
+      )}
     </div>
   )
 }
 
 const Total = (props) => {
+  const total = props.parts.reduce((sum, part) => {
+    return sum + part.exercises
+  }, 0)
+
   return (
     <p>
-      Number of exercises {
-        props.parts[0].exercises +
-        props.parts[1].exercises +
-        props.parts[2].exercises
-      }
+      Number of exercises {total}
     </p>
   )
 }
